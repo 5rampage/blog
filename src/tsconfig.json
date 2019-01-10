@@ -1,0 +1,18 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "target": "ES2017",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "lib": ["es2017"],
+        "outDir": "../build",
+        "typeRoots": [
+            "node_modules/@types/node"
+        ]
+    }
+}
