@@ -6,8 +6,7 @@ import { port } from '../conf';
 import errorHandler from '../middlewares/error';
 import etag from '../middlewares/etag';
 import viewHandler from '../middlewares/views';
-import { connect } from './mongodb';
-
+// import { connect } from './mongodb';
 
 import xhrRoutes from '../module';
 
@@ -16,7 +15,7 @@ const app = new Koa();
 // 允许代理模式
 app.proxy = true;
 
-//模板渲染引擎
+// 模板渲染引擎
 app.use(views(path.join(__dirname, '../views'), {
     extension: 'ejs'
 }));
@@ -36,11 +35,10 @@ app.use(
 // 业务模块
 app.use(xhrRoutes);
 
-connect().then(() => {
-    app.listen(port).addListener('listening', () => {
+// connect().then(() => {
+app.listen(port).addListener('listening', () => {
         console.log('server is started on port: ' + port);
     });
-}).catch((e) => {
-    console.error(`服务启动失败:${e.message}`);
-});
-
+// }).catch((e) => {
+//     console.error(`服务启动失败:${e.message}`);
+// });

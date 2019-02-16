@@ -10,7 +10,7 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "lib": ["es2017"],
-        "outDir": "../build",
+        "outDir": "./build",
         "typeRoots": [
             "node_modules/@types/node"
         ]

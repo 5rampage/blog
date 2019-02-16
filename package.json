@@ -10,7 +10,7 @@
         "web"
     ],
     "scripts": {
-        "server": "nodemon --config ./src/nodemon.json ./src/index.ts",
+        "server": "nodemon --config ./nodemon.json ./src/index.ts",
         "build": "sh scripts/build.sh",
         "tslint": "tslint --fix -c tslint.json './web/**/*.ts' './server/**/*.ts'"
     },
