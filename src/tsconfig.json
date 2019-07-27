@@ -9,10 +9,12 @@
         "sourceMap": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "lib": ["es2017"],
-        "outDir": "./build",
+        "lib": [
+            "es2017"
+        ],
+        "outDir": "../build",
         "typeRoots": [
-            "node_modules/@types/node"
+            "../node_modules/@types/node"
         ]
     }
 }

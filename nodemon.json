@@ -1,8 +1,0 @@
-{
-    "watch": ["./src"],
-    "ext": "ts",
-    "ignore": [".git", "node_modules/"],
-    "execMap": {
-        "ts": "TS_NODE_PROJECT=./tsconfig.json node --inspect=10002 -r ts-node/register"
-    }
-}

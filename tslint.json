@@ -5,25 +5,26 @@
     ],
     "jsRules": {},
     "rules": {
+        "no-var-requires": false,
         "quotemark": [
             true,
             "single"
-        ], 
+        ],
         "trailing-comma": [
             true,
             {
                 "multiline": "never",
                 "singleline": "never"
             }
-        ], 
-        "no-console": false, 
-        "member-access": false, 
-        "object-literal-sort-keys": false, 
-        "no-empty": false, 
+        ],
+        "no-console": false,
+        "member-access": false,
+        "object-literal-sort-keys": false,
+        "no-empty": false,
         "max-line-length": [
             false
-        ], 
-        "only-arrow-functions": false 
+        ],
+        "only-arrow-functions": false
     },
     "rulesDirectory": []
 }

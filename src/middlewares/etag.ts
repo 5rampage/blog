@@ -1,8 +1,8 @@
-import { Context } from 'koa';
+import { ParameterizedContext } from 'koa';
 import * as compose from 'koa-compose';
-import etag = require('koa-etag');
+const etag = require('koa-etag');
 
-const conditional = async (ctx: Context, next: any) => {
+const conditional = async (ctx: ParameterizedContext, next: any) => {
     await next();
     if (ctx.fresh) {
         ctx.status = 304;

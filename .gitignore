@@ -1,5 +1,2 @@
-.idea/*
-node_modules/*
-build/*
-publish/*
-.target/*
+node_modules
+build

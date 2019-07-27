@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+set -o errexit
 
 # 当前路径
 CURDIR=$(cd `dirname $0`; pwd)
@@ -11,3 +11,8 @@ tsc -P src/tsconfig.json
 
 # 将views目录复制到build目录下
 cp -r src/views build
+
+cp package.json build/package.json
+cp package-lock.json build/package-lock.json
+
+cd build && npm install --production && cd ..

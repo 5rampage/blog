@@ -1,48 +1,18 @@
-import * as Boom from 'boom';
-import { Context } from 'koa';
+import * as Boom from '@hapi/boom';
+import { ParameterizedContext } from 'koa';
 
-export default async (ctx: Context, next: any) => {
+export default async (ctx: ParameterizedContext, next: any) => {
     try {
         await next();
     } catch (error) {
-        let boomErr;
-        if (error instanceof ExpectedError) {
-            ctx.body = {
-                code: error.statusCode,
-                errorCode: error.data || error.message
-            };
-            console.error(`${error.data}`);
-            return;
-        } else {
-            boomErr = error.isBoom ? error : new Boom(error);
-        }
-
+        const boomErr = error.isBoom ? error : new Boom(error);
         const { statusCode, headers, payload } = boomErr.output;
         ctx.status = statusCode;
         ctx.set(headers);
         ctx.body = {
             code: payload.statusCode,
-            errorCode: boomErr.message
+            message: payload.error
         };
         console.error(boomErr);
     }
 };
-
-export class ExpectedError<T> extends Error {
-    isExpected: boolean = true;
-    statusCode: number = 400;
-    data?: T;
-    constructor(
-        message?: string,
-        options?: {
-            statusCode?: number
-            data?: T
-        }
-    ) {
-        super(message);
-        if (options) {
-            this.statusCode = options.statusCode || 400;
-            this.data = options.data;
-        }
-    }
-}
